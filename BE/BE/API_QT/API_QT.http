@@ -1,0 +1,6 @@
+@API_QT_HostAddress = http://localhost:5143
+
+GET {{API_QT_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

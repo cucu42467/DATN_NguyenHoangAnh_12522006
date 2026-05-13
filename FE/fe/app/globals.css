@@ -1,0 +1,1168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   DARK MODE TRANSITION - Global
+   ======================================== */
+   
+/* Ensure all elements transition smoothly when dark mode changes */
+*, *::before, *::after {
+  transition: 
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.2s ease,
+    fill 0.3s ease,
+    stroke 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Exclude animations and transitions that shouldn't be affected */
+.no-transition, .no-transition * {
+  transition: none !important;
+}
+
+/* ========================================
+   QUAN LY TAi CHINH - Design System
+   ======================================== */
+
+/* Color Palette - Light Mode (Default) */
+:root {
+  /* Primary Colors - Action Colors */
+  --color-primary: #3b82f6;      /* Lưu/Save - Blue */
+  --color-primary-hover: #2563eb;
+  --color-primary-light: #dbeafe;
+
+  /* Action Colors - Quan trọng! */
+  --color-action-create: #22c55e;    /* Thêm mới/Create - Green */
+  --color-action-save: #3b82f6;       /* Lưu/Save - Blue */
+  --color-action-edit: #f59e0b;        /* Sửa/Edit - Amber */
+  --color-action-delete: #ef4444;     /* Xóa/Delete - Red */
+  --color-action-cancel: #6b7280;     /* Hủy/Cancel - Gray */
+  --color-action-view: #6b7280;       /* Xem/View - Gray */
+
+  /* Status Colors */
+  --color-status-success: #22c55e;    /* Hoạt động/Active */
+  --color-status-inactive: #6b7280;  /* Ngừng/Inactive */
+  --color-status-error: #ef4444;      /* Lỗi/Error */
+  --color-status-pending: #f59e0b;     /* Đang xử lý/Pending */
+
+  /* Brand Colors */
+  --revolut-dark: #191c1f;
+  --revolut-white: #ffffff;
+  --revolut-surface: #f4f4f4;
+  --revolut-blue: #494fdf;
+  --action-blue: #4f55f1;
+  --blue-text: #376cd5;
+
+  /* Semantic Colors - Revenue/Expense */
+  --color-income: #22c55e;           /* Thu nhập - Green */
+  --color-expense: #ef4444;           /* Chi tiêu - Red */
+  --color-transfer: #494fdf;          /* Chuyển khoản - Blue */
+
+  /* Legacy Semantic Colors */
+  --danger: #e23b4a;
+  --deep-pink: #e61e49;
+  --warning: #ec7e00;
+  --yellow: #b09000;
+  --teal: #00a87e;
+  --light-green: #428619;
+  --green-text: #006400;
+  --light-blue: #007bc2;
+  --brown: #936d62;
+  --red-text: #8b0000;
+
+  /* Neutral Scale */
+  --text-secondary: #505a63;
+  --text-muted: #8d969e;
+  --border: #c9c9cd;
+
+  /* Background & Foreground - Light Mode */
+  --background: #ffffff;
+  --foreground: #191c1f;
+
+  /* Card & Surface Colors - Light Mode */
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Surface Colors - Light Mode */
+  --surface-primary: #ffffff;
+  --surface-secondary: #f4f4f5;
+  --surface-tertiary: #f9fafb;
+  --surface-hover: #f3f4f6;
+  --surface-active: #e5e7eb;
+
+  /* Text Colors - Light Mode */
+  --text-primary: #191c1f;
+  --text-secondary: #505a63;
+  --text-tertiary: #6b7280;
+  --text-muted: #8d969e;
+  --text-disabled: #9ca3af;
+  --text-inverse: #ffffff;
+
+  /* Input & Form Colors - Light Mode */
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-border-focus: #494fdf;
+  --input-placeholder: #9ca3af;
+  --input-text: #191c1f;
+
+  /* Table Colors - Light Mode */
+  --table-header-bg: #f9fafb;
+  --table-header-text: #6b7280;
+  --table-row-bg: #ffffff;
+  --table-row-alt: #f9fafb;
+  --table-row-hover: #f3f4f6;
+  --table-border: #e5e7eb;
+  --table-cell-text: #374151;
+
+  /* Sidebar Colors - Light Mode */
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e5e7eb;
+  --sidebar-text: #374151;
+  --sidebar-text-muted: #6b7280;
+  --sidebar-hover-bg: #f3f4f6;
+  --sidebar-active-bg: #494fdf;
+  --sidebar-active-text: #ffffff;
+
+  /* Topbar Colors - Light Mode */
+  --topbar-bg: rgba(255, 255, 255, 0.88);
+  --topbar-border: #e5e7eb;
+  --topbar-text: #191c1f;
+  --topbar-text-muted: #6b7280;
+
+  /* Badge Colors - Light Mode */
+  --badge-success-bg: #dcfce7;
+  --badge-success-text: #166534;
+  --badge-inactive-bg: #f3f4f6;
+  --badge-inactive-text: #4b5563;
+  --badge-error-bg: #fee2e2;
+  --badge-error-text: #991b1b;
+  --badge-pending-bg: #fef3c7;
+  --badge-pending-text: #92400e;
+
+  /* Action Button Backgrounds - Light Mode */
+  --bg-create: #dcfce7;
+  --bg-create-hover: #bbf7d0;
+  --bg-save: #dbeafe;
+  --bg-save-hover: #bfdbfe;
+  --bg-edit: #fef3c7;
+  --bg-edit-hover: #fde68a;
+  --bg-delete: #fee2e2;
+  --bg-delete-hover: #fecaca;
+
+  /* Overlay & Modal Colors */
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --modal-bg: #ffffff;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #e5e7eb;
+
+  /* App Shell */
+  --fe-sidebar-width: 20rem;
+  --fe-topbar-height: 4.5rem;
+  --fe-page-max-width: 80rem;
+
+  /* App Shell Backgrounds */
+  --app-shell-bg: #fafafa;
+  --app-shell-bg-end: #f4f4f5;
+  --app-shell-gradient-opacity: 0.08;
+}
+
+/* Dark Mode Variables */
+.dark {
+  /* Primary Colors - Dark Mode */
+  --color-primary: #60a5fa;
+  --color-primary-hover: #3b82f6;
+  --color-primary-light: #1e3a5f;
+
+  /* Brand Colors - Dark Mode */
+  --revolut-dark: #ededed;
+  --revolut-white: #0a0a0a;
+  --revolut-surface: #18181b;
+  --revolut-blue: #6366f1;
+
+  /* Background & Foreground - Dark Mode */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  /* Card & Surface Colors - Dark Mode */
+  --card-bg: #18181b;
+  --card-border: #27272a;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Surface Colors - Dark Mode */
+  --surface-primary: #18181b;
+  --surface-secondary: #1c1c1f;
+  --surface-tertiary: #27272a;
+  --surface-hover: #3f3f46;
+  --surface-active: #52525b;
+
+  /* Text Colors - Dark Mode */
+  --text-primary: #ededed;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --text-muted: #52525b;
+  --text-disabled: #3f3f46;
+  --text-inverse: #09090b;
+
+  /* Input & Form Colors - Dark Mode */
+  --input-bg: #18181b;
+  --input-border: #3f3f46;
+  --input-border-focus: #6366f1;
+  --input-placeholder: #71717a;
+  --input-text: #ededed;
+
+  /* Table Colors - Dark Mode */
+  --table-header-bg: #18181b;
+  --table-header-text: #a1a1aa;
+  --table-row-bg: #18181b;
+  --table-row-alt: #1c1c1f;
+  --table-row-hover: #27272a;
+  --table-border: #27272a;
+  --table-cell-text: #d4d4d8;
+
+  /* Sidebar Colors - Dark Mode */
+  --sidebar-bg: #09090b;
+  --sidebar-border: #27272a;
+  --sidebar-text: #d4d4d8;
+  --sidebar-text-muted: #a1a1aa;
+  --sidebar-hover-bg: #27272a;
+  --sidebar-active-bg: #6366f1;
+  --sidebar-active-text: #ffffff;
+
+  /* Topbar Colors - Dark Mode */
+  --topbar-bg: rgba(9, 9, 11, 0.86);
+  --topbar-border: #27272a;
+  --topbar-text: #ededed;
+  --topbar-text-muted: #a1a1aa;
+
+  /* Badge Colors - Dark Mode */
+  --badge-success-bg: #14532d;
+  --badge-success-text: #4ade80;
+  --badge-inactive-bg: #27272a;
+  --badge-inactive-text: #a1a1aa;
+  --badge-error-bg: #7f1d1d;
+  --badge-error-text: #fca5a5;
+  --badge-pending-bg: #713f12;
+  --badge-pending-text: #fcd34d;
+
+  /* Action Button Backgrounds - Dark Mode */
+  --bg-create: #14532d;
+  --bg-create-hover: #166534;
+  --bg-save: #1e3a5f;
+  --bg-save-hover: #1e40af;
+  --bg-edit: #713f12;
+  --bg-edit-hover: #92400e;
+  --bg-delete: #7f1d1d;
+  --bg-delete-hover: #991b1b;
+
+  /* Overlay & Modal Colors - Dark Mode */
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --modal-bg: #18181b;
+  --dropdown-bg: #18181b;
+  --dropdown-border: #3f3f46;
+
+  /* App Shell Backgrounds - Dark Mode */
+  --app-shell-bg: #09090b;
+  --app-shell-bg-end: #111827;
+  --app-shell-gradient-opacity: 0.12;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-revolut-dark: var(--revolut-dark);
+  --color-revolut-surface: var(--revolut-surface);
+  --color-revolut-blue: var(--revolut-blue);
+  --color-danger: var(--danger);
+  --color-teal: var(--teal);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-inter);
+  --font-display: 'Aeonik Pro', 'Inter', sans-serif;
+}
+
+/* Global Body Styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  letter-spacing: 0.16px; /* Positive tracking cho body text theo Revolut */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+#__next {
+  min-height: 100%;
+}
+
+/* ========================================
+   DARK MODE UTILITY CLASSES
+   ======================================== */
+
+/* Card Styles using CSS Variables */
+.card-base {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 1px 3px var(--card-shadow);
+}
+
+/* Surface utility classes */
+.surface-primary { background: var(--surface-primary); }
+.surface-secondary { background: var(--surface-secondary); }
+.surface-tertiary { background: var(--surface-tertiary); }
+.surface-hover { background: var(--surface-hover); }
+.surface-active { background: var(--surface-active); }
+
+/* Text utility classes */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-muted-custom { color: var(--text-muted); }
+
+/* Border utility classes */
+.border-base { border-color: var(--card-border); }
+.border-surface { border-color: var(--surface-border, var(--card-border)); }
+
+/* Input styles using CSS variables */
+.input-base {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+}
+
+.input-base::placeholder {
+  color: var(--input-placeholder);
+}
+
+.input-base:focus {
+  border-color: var(--input-border-focus);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(73, 79, 223, 0.2);
+}
+
+/* Table utility classes */
+.table-base {
+  background: var(--table-row-bg);
+  border-color: var(--table-border);
+}
+
+.table-header-base {
+  background: var(--table-header-bg);
+  color: var(--table-header-text);
+}
+
+.table-cell-base {
+  color: var(--table-cell-text);
+}
+
+.table-row-base:hover {
+  background: var(--table-row-hover);
+}
+
+/* Dropdown & Modal styles */
+.dropdown-base {
+  background: var(--dropdown-bg);
+  border: 1px solid var(--dropdown-border);
+}
+
+.modal-base {
+  background: var(--modal-bg);
+}
+
+/* Scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 20px;
+}
+
+/* Typography Classes theo Revolut */
+.font-display {
+  font-family: 'Aeonik Pro', 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.00;
+  letter-spacing: -0.4px;
+}
+
+.font-display-lg {
+  font-family: 'Aeonik Pro', 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.00;
+  letter-spacing: -0.8px;
+  font-size: 2.5rem; /* 40px */
+}
+
+.font-display-xl {
+  font-family: 'Aeonik Pro', 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.21;
+  letter-spacing: -0.48px;
+  font-size: 3rem; /* 48px */
+}
+
+/* Button Styles - Revolut Pill Buttons */
+.btn-pill {
+  border-radius: 9999px;
+  padding: 14px 32px;
+  font-family: 'Aeonik Pro', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem; /* 20px equivalent approx */
+  letter-spacing: normal;
+  transition: opacity 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-pill:hover {
+  opacity: 0.85;
+}
+
+.btn-pill-primary {
+  background-color: var(--revolut-dark);
+  color: var(--revolut-white);
+}
+
+.btn-pill-secondary {
+  background-color: var(--revolut-surface);
+  color: var(--revolut-dark);
+}
+
+.btn-pill-outlined {
+  background-color: transparent;
+  color: var(--revolut-dark);
+  border: 2px solid var(--revolut-dark);
+}
+
+.btn-pill-ghost-dark {
+  background-color: rgba(244, 244, 244, 0.1);
+  color: var(--revolut-surface);
+  border: 2px solid var(--revolut-surface);
+}
+
+/* Card & Container Styles - Flat, no shadows */
+.card-revolut {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.card-revolut-lg {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+}
+
+/* FE Card with border */
+.fe-card-fe {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px var(--card-shadow);
+}
+
+/* Skeleton Loading Animation */
+.fe-skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: fe-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.dark .fe-skeleton {
+  background: linear-gradient(
+    90deg,
+    #2a2a2a 25%,
+    #333333 50%,
+    #2a2a2a 75%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes fe-skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Focus Ring - Revolut style */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--revolut-blue);
+}
+
+/* Custom scrollbar (Revolut style - subtle) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.2);
+  border-radius: 20px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(63, 63, 70, 0.3);
+}
+
+/* Utility Classes */
+.text-revolut-heading {
+  font-family: 'Aeonik Pro', 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.00;
+  letter-spacing: -0.4px;
+  color: var(--revolut-dark);
+}
+
+/* UI FIX: Safe icon+text flex - prevents overlap (SkillBD.md) */
+.safe-icon-text {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important; /* gap-2 */
+}
+@media (max-width: 640px) {
+  .safe-icon-text {
+    gap: 0.5rem !important; /* sm:gap-2 */
+  }
+}
+.safe-icon-text > * {
+  flex-shrink: 0; /* Icons don't shrink */
+}
+.safe-icon-text > [class*="text-"] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5 !important; /* SkillBD.md: Prevent text squeeze over icon */
+  z-index: 10; /* Text above icons */
+}
+
+/* Z-index system (no 9999) */
+.z-safe { z-index: 10; }
+.z-overlay { z-index: 20; }
+.z-modal { z-index: 40; }
+.z-sidebar { z-index: 40; }
+
+/* Hover safe scale */
+.hover-scale-safe {
+  transform-origin: center;
+  z-index: 5;
+}
+.hover-scale-safe:hover {
+  z-index: 15;
+}
+
+/* Revolut Spacing System */
+.space-rev-12 { margin-block: 0.75rem; } /* 12px */
+.space-rev-16 { margin-block: 1rem; } /* 16px */
+.space-rev-24 { margin-block: 1.5rem; } /* 24px */
+.space-rev-32 { margin-block: 2rem; } /* 32px */
+.p-rev-12 { padding: 0.75rem; }
+.p-rev-16 { padding: 1rem; }
+.p-rev-24 { padding: 1.5rem; }
+.p-rev-32 { padding: 2rem; }
+
+.text-revolut-body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.50;
+  letter-spacing: 0.24px;
+  color: var(--foreground);
+}
+
+.border-revolut {
+  border-color: var(--border);
+}
+
+.bg-revolut-surface {
+  background-color: var(--revolut-surface);
+}
+
+.bg-revolut-dark {
+  background-color: var(--revolut-dark);
+}
+
+.text-revolut-muted {
+  color: var(--text-muted);
+}
+
+.text-revolut-secondary {
+  color: var(--text-secondary);
+}
+
+/* Shared page shells */
+.fe-app-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  background:
+    radial-gradient(circle at top right, rgba(73, 79, 223, var(--app-shell-gradient-opacity)), transparent 22rem),
+    linear-gradient(180deg, var(--app-shell-bg) 0%, var(--app-shell-bg-end) 100%);
+  transition: background 0.3s ease;
+}
+
+.fe-main-shell {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+}
+
+@media (min-width: 1024px) {
+  .fe-main-shell {
+    margin-left: var(--fe-sidebar-width);
+  }
+}
+
+.fe-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--topbar-bg);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--topbar-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.fe-topbar-shell {
+  width: 100%;
+  max-width: var(--fe-page-max-width);
+  min-height: var(--fe-topbar-height);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.fe-content-shell {
+  width: 100%;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+@media (min-width: 1024px) {
+  .fe-content-shell {
+    padding: 2rem 2rem 2.5rem;
+  }
+}
+
+.fe-page-shell {
+  width: 100%;
+  max-width: var(--fe-page-max-width);
+  margin-inline: auto;
+}
+
+.fe-page-shell-narrow {
+  max-width: 48rem;
+}
+
+/* Sidebar specific styles */
+.fe-sidebar {
+  background: var(--sidebar-bg);
+  border-color: var(--sidebar-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.fe-sidebar-text {
+  color: var(--sidebar-text);
+}
+
+.fe-sidebar-text-muted {
+  color: var(--sidebar-text-muted);
+}
+
+.fe-sidebar-hover:hover {
+  background: var(--sidebar-hover-bg);
+}
+
+.fe-sidebar-active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+}
+
+/* ========================================
+   ACTION BUTTON STYLES
+   ======================================== */
+
+/* Create - Thêm mới - Green */
+.btn-create {
+  background-color: var(--color-action-create);
+  color: white;
+}
+.btn-create:hover:not(:disabled) {
+  background-color: #16a34a;
+}
+.btn-create:active:not(:disabled) {
+  background-color: #15803d;
+}
+
+/* Save/Primary - Lưu - Blue */
+.btn-save {
+  background-color: var(--color-action-save);
+  color: white;
+}
+.btn-save:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+.btn-save:active:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+/* Edit - Sửa - Amber */
+.btn-edit {
+  background-color: var(--color-action-edit);
+  color: white;
+}
+.btn-edit:hover:not(:disabled) {
+  background-color: #d97706;
+}
+.btn-edit:active:not(:disabled) {
+  background-color: #b45309;
+}
+
+/* Delete - Xóa - Red */
+.btn-delete {
+  background-color: var(--color-action-delete);
+  color: white;
+}
+.btn-delete:hover:not(:disabled) {
+  background-color: #dc2626;
+}
+.btn-delete:active:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+/* Cancel - Hủy - Gray */
+.btn-cancel {
+  background-color: var(--color-action-cancel);
+  color: white;
+}
+.btn-cancel:hover:not(:disabled) {
+  background-color: #4b5563;
+}
+.btn-cancel:active:not(:disabled) {
+  background-color: #374151;
+}
+
+/* View - Xem - Gray Outline */
+.btn-view {
+  background-color: transparent;
+  color: var(--color-action-view);
+  border: 1px solid var(--input-border);
+}
+.btn-view:hover:not(:disabled) {
+  background-color: var(--surface-hover);
+}
+
+/* Icon Action Buttons - Small (Table actions) */
+.btn-action-create {
+  background-color: var(--bg-create);
+  color: var(--color-action-create);
+  border: 1px solid var(--color-action-create);
+}
+.btn-action-create:hover {
+  background-color: var(--bg-create-hover);
+}
+
+.btn-action-edit {
+  background-color: var(--bg-edit);
+  color: var(--color-action-edit);
+  border: 1px solid var(--color-action-edit);
+}
+.btn-action-edit:hover {
+  background-color: var(--bg-edit-hover);
+}
+
+.btn-action-delete {
+  background-color: var(--bg-delete);
+  color: var(--color-action-delete);
+  border: 1px solid var(--color-action-delete);
+}
+.btn-action-delete:hover {
+  background-color: var(--bg-delete-hover);
+}
+
+.btn-action-view {
+  background-color: var(--surface-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+}
+.btn-action-view:hover {
+  background-color: var(--surface-hover);
+}
+
+/* ========================================
+   STATUS BADGE STYLES
+   ======================================== */
+
+/* Success/Active */
+.badge-success {
+  background-color: var(--badge-success-bg);
+  color: var(--badge-success-text);
+  border: 1px solid transparent;
+}
+
+/* Inactive/Stopped */
+.badge-inactive {
+  background-color: var(--badge-inactive-bg);
+  color: var(--badge-inactive-text);
+  border: 1px solid transparent;
+}
+
+/* Error */
+.badge-error {
+  background-color: var(--badge-error-bg);
+  color: var(--badge-error-text);
+  border: 1px solid transparent;
+}
+
+/* Pending/Processing */
+.badge-pending {
+  background-color: var(--badge-pending-bg);
+  color: var(--badge-pending-text);
+  border: 1px solid transparent;
+}
+
+/* Income - Thu nhập */
+.badge-income {
+  background-color: var(--badge-success-bg);
+  color: var(--badge-success-text);
+  border: 1px solid transparent;
+}
+
+/* Expense - Chi tiêu */
+.badge-expense {
+  background-color: var(--badge-error-bg);
+  color: var(--badge-error-text);
+  border: 1px solid transparent;
+}
+
+/* Transfer - Chuyển khoản */
+.badge-transfer {
+  background-color: var(--bg-save);
+  color: var(--color-primary);
+  border: 1px solid transparent;
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+
+/* Form section spacing */
+.form-section {
+  margin-bottom: 2rem; /* 32px */
+}
+
+.form-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Form field spacing */
+.form-field {
+  margin-bottom: 1rem; /* 16px */
+}
+
+/* Form grid */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .form-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+  margin-top: 2rem;
+}
+
+/* Required field indicator */
+.form-required {
+  color: var(--color-action-delete);
+  margin-left: 2px;
+}
+
+/* ========================================
+   TABLE STYLES
+   ======================================== */
+
+/* Table container */
+.table-container {
+  overflow-x: auto;
+  border-radius: 1rem; /* 16px */
+  border: 1px solid var(--table-border);
+  background: var(--table-row-bg);
+}
+
+/* Table header */
+.table-header {
+  background-color: var(--table-header-bg);
+  border-bottom: 1px solid var(--table-border);
+}
+
+.table-header-cell {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--table-header-text);
+}
+
+/* Table body */
+.table-row {
+  border-bottom: 1px solid var(--table-border);
+  transition: background-color 0.15s ease;
+  background: var(--table-row-bg);
+}
+
+.table-row:hover {
+  background-color: var(--table-row-hover);
+}
+
+.table-row:nth-child(even) {
+  background-color: var(--table-row-alt);
+}
+
+.table-row:nth-child(even):hover {
+  background-color: var(--table-row-hover);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.875rem;
+  color: var(--table-cell-text);
+}
+
+/* Table actions */
+.table-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.table-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem; /* 36px */
+  height: 2.25rem; /* 36px */
+  border-radius: 0.5rem; /* 8px */
+  transition: all 0.15s ease;
+}
+
+/* Table footer */
+.table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--table-header-bg);
+  border-top: 1px solid var(--table-border);
+  color: var(--text-secondary);
+}
+
+.table-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.empty-state-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background-color: var(--surface-secondary);
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  max-width: 24rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   CONFIRM DIALOG
+   ======================================== */
+
+.confirm-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--overlay-bg);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-dialog {
+  position: relative;
+  z-index: 51;
+  width: 100%;
+  max-width: 28rem;
+  margin: 1rem;
+  padding: 1.5rem;
+  background: var(--modal-bg);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.confirm-dialog-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  margin: 0 auto 1rem;
+}
+
+.confirm-dialog-icon-danger {
+  background-color: var(--badge-error-bg);
+  color: var(--badge-error-text);
+}
+
+.confirm-dialog-icon-warning {
+  background-color: var(--badge-pending-bg);
+  color: var(--badge-pending-text);
+}
+
+.confirm-dialog-icon-info {
+  background-color: var(--bg-save);
+  color: var(--color-primary);
+}
+
+.confirm-dialog-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.confirm-dialog-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.confirm-dialog-actions > * {
+  flex: 1;
+}
+
+/* ========================================
+   RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Touch-friendly minimum sizes */
+@media (max-width: 768px) {
+  .touch-target-min {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions > * {
+    width: 100%;
+  }
+
+  .table-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .table-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fe-topbar-shell {
+    padding-inline: 2rem;
+  }
+
+  .fe-content-shell {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+}

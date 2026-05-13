@@ -1,0 +1,12 @@
+/* CSS Module dành riêng cho Trang Chủ */
+/* Tại đây bạn có thể viết các class CSS tuỳ chỉnh mà không sợ bị trùng lặp với trang khác. */
+
+.container {
+  /* Ví dụ một class tên container */
+  position: relative;
+}
+
+.title {
+  /* CSS riêng cho tiêu đề */
+  color: inherit;
+}

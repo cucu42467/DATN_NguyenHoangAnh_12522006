@@ -1,0 +1,28 @@
+# secrets
+.env
+.env.*
+appsettings*.json
+
+# .NET
+bin/
+obj/
+.vs/
+
+# Node / Next
+node_modules/
+.next/
+
+# IDE
+.vscode/
+.cline/
+.agents/
+
+# logs
+*.log
+
+# build
+build/
+dist/
+
+# OS
+.DS_Store

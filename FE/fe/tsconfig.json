@@ -1,0 +1,249 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      // Services - API Services
+      "@/services/ai": [
+        "./services/ai/ai.ts"
+      ],
+      "@/services/baocao": [
+        "./services/baocao/baocao.ts"
+      ],
+      "@/services/danhmuc": [
+        "./services/danhmuc/danhmuc.ts"
+      ],
+      "@/services/gemini": [
+        "./services/ai/gemini.ts"
+      ],
+      "@/services/giaodich": [
+        "./services/giaodich/giaodich.ts"
+      ],
+      "@/services/kieu_giao_tiep": [
+        "./thu_vien/kieu_giao_tiep.ts"
+      ],
+      "@/services/luu_tru_phien": [
+        "./thu_vien/luu_tru_phien.ts"
+      ],
+      "@/services/qt": [
+        "./services/qt/index.ts"
+      ],
+      "@/services/taikhoan": [
+        "./services/taikhoan/taikhoan.ts"
+      ],
+      "@/services/tongquan": [
+        "./services/trangchu/tongquan.ts"
+      ],
+      "@/services/xacthuc": [
+        "./services/xacthuc/xacthuc"
+      ],
+      "@/services/*": [
+        "./services/*"
+      ],
+      // Components - Shared Components
+      "@/components/admin/*": [
+        "./features/tinh_nang/admin/thanh_phan/*"
+      ],
+      "@/components/animation": [
+        "./components/animation/index.ts"
+      ],
+      "@/components/chung/*": [
+        "./components/chung/*"
+      ],
+      "@/components/ui/*": [
+        "./components/ui/*"
+      ],
+      "@/components/user/BaoCao/*": [
+        "./features/tinh_nang/baocao/thanh_phan/*"
+      ],
+      "@/components/user/DanhMuc/*": [
+        "./features/tinh_nang/danhmuc/thanh_phan/*"
+      ],
+      "@/components/user/GiaoDich/*": [
+        "./features/tinh_nang/giaodich/thanh_phan/*"
+      ],
+      "@/components/user/NganSach/*": [
+        "./features/tinh_nang/ngansach/thanh_phan/*"
+      ],
+      "@/components/user/TrangChu/*": [
+        "./features/tinh_nang/trangchu/thanh_phan/*"
+      ],
+      "@/components/user/TrungTamAI/*": [
+        "./features/tinh_nang/trungtam_ai/thanh_phan/*"
+      ],
+      "@/components/user/TaiKhoan/*": [
+        "./features/tinh_nang/taikhoan/thanh_phan/*"
+      ],
+      "@/components/user/MucTieu/*": [
+        "./features/tinh_nang/muctieu/thanh_phan/*"
+      ],
+      "@/components/*": [
+        "./features/tinh_nang/admin/thanh_phan/*",
+        "./features/tinh_nang/giaodich/thanh_phan/*",
+        "./features/tinh_nang/baocao/thanh_phan/*",
+        "./features/tinh_nang/danhmuc/thanh_phan/*",
+        "./features/tinh_nang/taikhoan/thanh_phan/*",
+        "./features/tinh_nang/muctieu/thanh_phan/*",
+        "./features/tinh_nang/ngansach/thanh_phan/*",
+        "./features/tinh_nang/trangchu/thanh_phan/*",
+        "./features/tinh_nang/trungtam_ai/thanh_phan/*",
+        "./features/tinh_nang/hoso/thanh_phan/*",
+        "./components/*"
+      ],
+      // Features - Feature modules (components are in features/tinh_nang/)
+      "@/features/*": [
+        "./features/*"
+      ],
+      // Feature specific paths
+      "@/features/admin/*": [
+        "./features/tinh_nang/admin/*"
+      ],
+      "@/features/baocao/*": [
+        "./features/tinh_nang/baocao/*"
+      ],
+      "@/features/danhmuc/*": [
+        "./features/tinh_nang/danhmuc/*"
+      ],
+      "@/features/giaodich/*": [
+        "./features/tinh_nang/giaodich/*"
+      ],
+      "@/features/muctieu/*": [
+        "./features/tinh_nang/muctieu/*"
+      ],
+      "@/features/ngansach/*": [
+        "./features/tinh_nang/ngansach/*"
+      ],
+      "@/features/taikhoan/*": [
+        "./features/tinh_nang/taikhoan/*"
+      ],
+      "@/features/trangchu/*": [
+        "./features/tinh_nang/trangchu/*"
+      ],
+      "@/features/trungtam_ai/*": [
+        "./features/tinh_nang/trungtam_ai/*"
+      ],
+      "@/features/hoso/*": [
+        "./features/tinh_nang/hoso/*"
+      ],
+      // Hooks - Custom React Hooks
+      "@/hooks/*": [
+        "./hooks/*"
+      ],
+      // Types - TypeScript Interfaces
+      "@/types": [
+        "./types/index.ts"
+      ],
+      "@/types/*": [
+        "./types/*"
+      ],
+      // Backward compatibility - kieu_du_lieu -> types
+      "@/kieu_du_lieu": [
+        "./types/index.ts"
+      ],
+      "@/kieu_du_lieu/chung": [
+        "./types/chung.ts"
+      ],
+      "@/kieu_du_lieu/user": [
+        "./types/index.ts"
+      ],
+      "@/kieu_du_lieu/user/*": [
+        "./types/*"
+      ],
+      "@/kieu_du_lieu/NganSach": [
+        "./types/TrangChu.ts"
+      ],
+      "@/kieu_du_lieu/MucTieu": [
+        "./types/MucTieu.ts"
+      ],
+      "@/kieu_du_lieu/DanhMuc": [
+        "./types/DanhMuc.ts"
+      ],
+      "@/kieu_du_lieu/GiaoDich": [
+        "./types/GiaoDich.ts"
+      ],
+      "@/kieu_du_lieu/TaiKhoan": [
+        "./types/TaiKhoan.ts"
+      ],
+      "@/kieu_du_lieu/TrangChu": [
+        "./types/TrangChu.ts"
+      ],
+      "@/kieu_du_lieu/TrungTamAI": [
+        "./types/TrungTamAI.ts"
+      ],
+      "@/kieu_du_lieu/GeminiAI": [
+        "./types/GeminiAI.ts"
+      ],
+      "@/kieu_du_lieu/HoSo": [
+        "./types/HoSo.ts"
+      ],
+      "@/kieu_du_lieu/BaoCao": [
+        "./types/BaoCao.ts"
+      ],
+      "@/kieu_du_lieu/*": [
+        "./types/*"
+      ],
+      // Thu vien - Utilities
+      "@/thu_vien/*": [
+        "./thu_vien/*"
+      ],
+      // Lib - Helper functions
+      "@/lib/*": [
+        "./lib/*"
+      ],
+      // Constants
+      "@/constants/*": [
+        "./constants/*"
+      ],
+      // Backward compatibility - utils -> lib
+      "@/utils/*": [
+        "./lib/*"
+      ],
+      // Backward compatibility aliases
+      "@/services/*": [
+        "./services/*"
+      ],
+      "@/thanh_phan/*": [
+        "./components/*"
+      ],
+      "@/tinh_nang/*": [
+        "./features/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
